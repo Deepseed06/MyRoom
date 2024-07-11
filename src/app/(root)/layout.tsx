@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { StreamVideoProvider } from '../../../providers/StreamClientProvider'
 import { Metadata } from 'next';
 export const metadata: Metadata = {
-  title: "SoftCon",
+  title: "MyRoom",
   description: "Video Calling App",
   icons:{
     icon:'/icons/logo.svg'
