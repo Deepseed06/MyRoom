@@ -36,7 +36,7 @@ const MobileView = () => {
             className='max-sm:size-10'
             />
             <p className='text-[26px] font-extrabold
-            text-white max-sm:hidden'>Yoom</p>
+            text-white max-sm:hidden'>MyRoom</p>
         </Link>
         <div className='flex h-[calc(100vh-73px)] flex-col 
         justify-between overflow-y-auto'>

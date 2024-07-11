@@ -22,7 +22,7 @@ const Navbar = () => {
             className='max-sm:size-10'
             />
             <p className='text-[26px] font-extrabold
-            text-white max-sm:hidden'>Yoom</p>
+            text-white max-sm:hidden'>MyRoom</p>
         </Link>
 
         <div className='flex-between gap-5'>

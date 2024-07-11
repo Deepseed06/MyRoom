@@ -79,8 +79,8 @@ const {endedCalls, upcomingCalls, callRecordings,
             : type==='upcoming'? 'icons/upcoming.svg'
             :'icons/recordings.svg' 
           }
-          title={(meeting as Call).state?.custom.description.substring(0,20)|| 
-            meeting.filename.substring(0, 20) || 'No description'
+          title={(meeting as Call).state?.custom?.description?.substring(0,20)|| 
+            meeting.filename?.substring(0, 20) || 'No description'
           }
           date={meeting.state?.startsAt.toLocaleString() ||
             meeting.start_time.toLocaleString()
