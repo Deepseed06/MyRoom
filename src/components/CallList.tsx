@@ -22,7 +22,7 @@ const {endedCalls, upcomingCalls, callRecordings,
       case 'ended':
         return endedCalls;
       case 'recordings':
-        return callRecordings;
+        return recordings;
       case 'upcoming':
         return upcomingCalls;
       default:
@@ -51,16 +51,16 @@ const {endedCalls, upcomingCalls, callRecordings,
         const callData = await Promise.all(callRecordings
           .map((meeting) => meeting.queryRecordings()))
           
-          const recordings = callData 
+          const recordings = callData
           .filter(call => call.recordings.length > 0)
           .flatMap(call => call.recordings)
           
-          setRecordings(recordings)
-          fetchRecordings()
+          setRecordings(recordings);
         } catch (error) {
           toast({title:'Try again later'})
         }
       }
+      if(type === 'recordings') fetchRecordings();
       }, [type, callRecordings])
   
   const calls = getCalls();
@@ -79,10 +79,10 @@ const {endedCalls, upcomingCalls, callRecordings,
             : type==='upcoming'? 'icons/upcoming.svg'
             :'icons/recordings.svg' 
           }
-          title={(meeting as Call).state?.custom?.description?.substring(0,20)|| 
-            meeting?.filename?.substring(0, 20) || 'No description'
+          title={(meeting as Call).state?.custom.description.substring(0,20)|| 
+            meeting.filename.substring(0, 20) || 'No description'
           }
-          date={meeting.state.startsAt.toLocaleString() ||
+          date={meeting.state?.startsAt.toLocaleString() ||
             meeting.start_time.toLocaleString()
           }
           isPreviousMeeting={type==='ended'}
@@ -90,7 +90,7 @@ const {endedCalls, upcomingCalls, callRecordings,
           handleClick={type==='recordings'? () => router.push(`${meeting.url}`)
             : () => router.push(`/meeting/${meeting.id}`)
           }
-          link={type==='recordings'? `${meeting.url}` : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meeting.id}`}
+          link={type==='recordings'? meeting.url : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meeting.id}`}
           buttonText={type==='recordings'? 'Play' : 'Start'}
           />
        
