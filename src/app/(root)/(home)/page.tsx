@@ -4,7 +4,7 @@ import React from 'react'
 import CallList from '@/components/CallList';
 
 
-const Home = ({type} :{type:'ended' | 'upcoming' | 'recording'}) => {
+const Home = () => {
  
 
   const now = new Date();
@@ -23,7 +23,7 @@ const Home = ({type} :{type:'ended' | 'upcoming' | 'recording'}) => {
           
           <h2 className='glassmorphism max-w-[270px] rounded
           py-2 text-center text-base font-normal'>
-            <CallList type='upcoming'/>
+            Upcoming Meeting by 
           </h2>
           <div className='flex flex-col gap-2'>
             <h1 className='font-extrabold text-4xl lg:text-7xl'>
