@@ -64,6 +64,7 @@ const {endedCalls, upcomingCalls, callRecordings,
       }, [type, callRecordings])
   
   const calls = getCalls();
+  console.log(calls)
   const noCallsMessage = getNoCallsMessage()
 
   if(isLoading) return <Loader/>

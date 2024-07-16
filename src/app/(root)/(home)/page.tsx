@@ -1,12 +1,11 @@
-
+'use client'
 import MeetingTypeList from '@/components/MeetingTypeList';
 import React from 'react'
-import CallList from '@/components/CallList';
-
-
+import { useGetCalls } from '../../../../hooks/useGetCalls';
 const Home = () => {
- 
 
+  const {upcomingCalls} = useGetCalls();
+ const upcoming =  upcomingCalls.map((meeting) => meeting.state?.startsAt?.toLocaleString())
   const now = new Date();
   const time = now.toLocaleTimeString('en-US', {hour:'2-digit',
   minute: '2-digit'
@@ -23,7 +22,8 @@ const Home = () => {
           
           <h2 className='glassmorphism max-w-[270px] rounded
           py-2 text-center text-base font-normal'>
-            Upcoming Meeting by 
+            
+            Upcoming Meeting by {upcoming[0]} 
           </h2>
           <div className='flex flex-col gap-2'>
             <h1 className='font-extrabold text-4xl lg:text-7xl'>

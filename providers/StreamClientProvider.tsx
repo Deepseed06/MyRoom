@@ -29,7 +29,7 @@ import Loader from '@/components/Loader';
             tokenProvider
         })
         setVideoClient(client)
-    }, [user, isLoaded]);
+    }, [ user, isLoaded]);
 
     if(!videoClient) return <Loader/>
     return (
